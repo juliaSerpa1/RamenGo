@@ -2,12 +2,13 @@ const axios = require('axios');
 const { createOrder } = require('../models/orderModel');
 const broths = require('../models/brothModel');
 const proteins = require('../models/proteinModel');
+require('dotenv').config();
 
 const generateOrderNumber = async () => {
     try {
         const response = await axios.post('https://api.tech.redventures.com.br/orders/generate-id', {}, {
             headers: {
-                'x-api-key': 'ZtVdh8XQ2U8pWI2gmZ7f796Vh8GllXoN7mr0djNf'
+                'x-api-key': process.env.API_KEY
             }
         });
 
